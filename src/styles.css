@@ -1,0 +1,47 @@
+.home{
+  border: 1px solid #ff5a5a;
+  height: 100vh;
+  width: 100vw;
+  padding: auto;
+  /* display: flex;
+  flex-direction: column; */
+}
+input{
+  margin: 10px;
+  /* flex: 0.2; */
+  width: 20%;
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.splitScreen {
+  height:20px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  /* padding:1% 1% 2% 1%; */
+}
+#leftPane {
+  flex: 1;
+  padding:45px;
+  
+}
+#rightPane {
+  flex: 3;
+  /* padding: 3px; */
+  
+}
+
+h1{
+  text-align: right;
+}
+.splitScreen>div {
+  height: 100%;
+  width: 100%;
+}
+.stepsWrapper{
+  width: 60%;
+  margin: 0 auto;
+  direction: rtl;
+}

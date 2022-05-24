@@ -248,8 +248,6 @@ export default function ColumnsGrid() {
     //     // this.setState({});
     //   };
 
-
-
     // appendRow(event) {
     //     var rel = event.target.getAttribute("rel");
     //     rel = parseInt(rel) + 1;

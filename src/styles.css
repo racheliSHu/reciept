@@ -45,3 +45,9 @@ h1{
   margin: 0 auto;
   direction: rtl;
 }
+.AppBar{
+  background-color: aquamarine;
+}
+.NativeSelect{
+  width:50px
+}

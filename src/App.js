@@ -7,8 +7,8 @@ import { Routes, Route } from "react-router-dom";
 import ReciptsPage from './reciptsPage';
 // import FullFeaturedCrudGrid from "./gridrow";
 import  Reci  from "./typesOfRecipts";
-
-
+import ButtonAppBar from './navbar'
+import CheckboxesTags from './selecttag'
 
 
 export default function App() {
@@ -19,6 +19,8 @@ export default function App() {
 
       {/* <Reci/> */}
       {/* <FullFeaturedCrudGrid/> */}
+      {/* <ButtonAppBar/>
+      <CheckboxesTags/> */}
       <Routes>
         <Route exact path='/' element={< HomePage />}></Route>
         <Route exact path='/login' element={< Login />}></Route>

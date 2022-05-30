@@ -30,7 +30,7 @@ input{
   text-align: center;
 }
 .splitScreen {
-  height:20px;
+    height:20px;
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -58,4 +58,8 @@ h1{
   width: 60%;
   margin: 0 auto;
   direction: rtl;
+}
+.splitScreen2{
+  border: #ff8080;
+  padding: 2.5vh;
 }

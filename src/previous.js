@@ -15,13 +15,13 @@ export default function Previous() {
     }, [])
     return (
         <div className="splitScreen" >
-            <h1> Fetch data from an api in react </h1>
+
             <ul>
-                {pre.map(item => 
+                {pre.map(item =>
                     <>
-                        <li key={item.receipt.dateReceipt}>{item.receipt.dateReceipt}</li>
                         <li key={item.receipt.nameShop}>{item.receipt.nameShop}</li>
-                        <li key={item.receipt.totalSum}>{item.receipt.totalSum}</li>
+                        <li key={item.receipt.dateReceipt}>{item.receipt.dateReceipt}</li>
+                        <li key={item.receipt.totalSum}>{"₪"}{item.receipt.totalSum}</li>
                         <li>{item.products.map(pro => pro.nameProduct).join(' , ')}</li>
                     </>
                 )

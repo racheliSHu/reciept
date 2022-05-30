@@ -11,14 +11,21 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { prefixer } from 'stylis';
 export default function Reci() {
+  const [pre, setPre] = useState([])
+  const data = [
+    ["530", "ביגוד"],
+    ["2000.5", "מזון"],
+    ["500", "רכב"],
+    ["1000", "לימודים"],
+  ];
   useEffect(() => {
     async function getResults() {
-        //  const result = await axios.get("https://localhost:44391/api/Category");
-        //  console.log(result.data);
-        // setRows(AllReceipt.products);
+      const result = await axios.get("https://localhost:44391/api/Category");
+      console.log(result.data)
+      setPre(Array.from(result.data[0]))
     }
     getResults()
-}, [])
+  }, [])
   // let getMuiTheme = () =>
   //   createTheme({
   //     overrides: {
@@ -48,14 +55,8 @@ export default function Reci() {
     key: 'muirtl',
     stylisPlugins: [prefixer, rtlPlugin],
   });
-  const columns = ["...","סכום", "שם"];
+  const columns = ["סכום", "שם"];
 
-  const data = [
-    ["530", "ביגוד"],
-    ["2000.5", "מזון"],
-    [ "500","רכב"],
-    [ "1000","לימודים"],
-  ];
 
   const options = {
     filterType: "checkbox",
@@ -68,8 +69,8 @@ export default function Reci() {
         previous: "< Previous",
         rowsPerPage: "Total items Per Page",
         displayRows: "OF",
-        require:"true",
-        data:"typeof(number)"
+        require: "true",
+        data: "typeof(number)"
       },
     },
     onChangePage(currentPage) {
@@ -79,22 +80,43 @@ export default function Reci() {
       console.log({ numberOfRows });
     },
   };
- 
+
   return (
-    <div>
-      <CacheProvider value={cacheRtl}>
-        <ThemeProvider theme={theme}>
-          <h1 >סוגי הוצאות</h1>
-          {/* <MuiThemeProvider theme={this.getMuiTheme()}> */}
-          <MUIDataTable
-            // title={"הוצאות כללי"}
-            data={data}
-            columns={columns}
-            options={options}
-          />
-        </ThemeProvider>
-      </CacheProvider>
-      {/* </MuiThemeProvider> */}
-    </div>
+    // <div>
+    //   {/* <CacheProvider value={cacheRtl}>
+    //     <ThemeProvider theme={theme}>
+    //       <h1 >סוגי הוצאות</h1>
+    //       <MUIDataTable
+    //         // title={"הוצאות כללי"}
+    //          data={data}
+    //         columns={columns}
+    //         options={options}
+    //       />
+
+    //     </ThemeProvider>
+    //   </CacheProvider> */}
+    //       <ul>
+    //         {pre.map(item =>
+    //           <>
+    //             <li key={item.category.nameCategory}>{item.category.nameCategory}</li>
+    //           </>)}
+    //       </ul>
+    // </div>
+    <div className="splitScreen" >
+
+      <ul>
+        {pre.map(item=>
+          <>
+
+          {/* <li key={item}>{item}</li> */}
+            {/* <li key={item.receipt.dateReceipt}>{item.receipt.dateReceipt}</li>
+            <li key={item.receipt.totalSum}>{"₪"}{item.receipt.totalSum}</li>
+            <li>{item.products.map(pro => pro.nameProduct).join(' , ')}</li> */} 
+          </>
+        
+        
+         )  } </ul>
+      
+    </div >
   );
 }

@@ -19,18 +19,18 @@ export default function ButtonAppBar() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2 ,  "padding-bottom": "10px"}}
             
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          </Typography>
-         
-          <Button color="inherit" onClick={()=>navigate("/login")}>Login</Button>
+          </Typography>       
+          <Button color="inherit" onClick={()=>navigate("/ReciptsTypes")}>סוגי הוצאות</Button>
+           <Button color="inherit" onClick={()=>navigate("/main")}>הוצאות</Button>
+          <Button color="inherit" onClick={()=>navigate("/login")}>כניסה</Button>
           {/* <Button color="inherit" onClick={()=>navigate("/main")}>Receipts</Button> */}
-          <Button color="inherit" onClick={()=>navigate("/main")}>Reciepts</Button>
-          <Button color="inherit" onClick={()=>navigate("/ReciptsTypes")}>ReceiptsTypes</Button>
+ 
           
         </Toolbar>
       </AppBar>

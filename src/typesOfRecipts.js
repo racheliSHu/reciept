@@ -1,15 +1,8 @@
-// import React, { Component } from "react";
 import "./styles.css";
 import MUIDataTable from "mui-datatables";
-import { MuiThemeProvider } from "@material-ui/core/styles";
-// createTheme
 import axios from 'axios';
 import { useState, useEffect, useRef } from "react";
-import createCache from '@emotion/cache';
-import { CacheProvider } from '@emotion/react';
-import rtlPlugin from 'stylis-plugin-rtl';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { prefixer } from 'stylis';
+
 export default function Reci() {
   const [pre, setPre] = useState([])
   const data = [
@@ -18,45 +11,15 @@ export default function Reci() {
     ["500", "רכב"],
     ["1000", "לימודים"],
   ];
+  const columns = ["סכום", "שם"];
   useEffect(() => {
     async function getResults() {
       const result = await axios.get("https://localhost:44391/api/Category");
       console.log(result.data)
-      setPre(Array.from(result.data[0]))
+      setPre(Array.from(result.data))
     }
     getResults()
   }, [])
-  // let getMuiTheme = () =>
-  //   createTheme({
-  //     overrides: {
-  //       MUIDataTableBodyCell: {
-  //         root: {
-  //           backgroundColor: "#FF0000",
-  //         },
-  //       },
-  //       MUIDataTablePagination: {
-  //         root: {
-  //           backgroundColor: "#000",
-  //           color: "#fff",
-  //         },
-  //       },
-  //     },
-  //   });
-
-  const theme = createTheme({
-    direction: 'rtl',
-    palette: {
-      primary: {
-        main: 'rgb(243, 26, 73)'
-      }
-    }
-  });
-  const cacheRtl = createCache({
-    key: 'muirtl',
-    stylisPlugins: [prefixer, rtlPlugin],
-  });
-  const columns = ["סכום", "שם"];
-
 
   const options = {
     filterType: "checkbox",
@@ -82,41 +45,23 @@ export default function Reci() {
   };
 
   return (
-    // <div>
-    //   {/* <CacheProvider value={cacheRtl}>
-    //     <ThemeProvider theme={theme}>
-    //       <h1 >סוגי הוצאות</h1>
-    //       <MUIDataTable
-    //         // title={"הוצאות כללי"}
-    //          data={data}
-    //         columns={columns}
-    //         options={options}
-    //       />
-
-    //     </ThemeProvider>
-    //   </CacheProvider> */}
-    //       <ul>
-    //         {pre.map(item =>
-    //           <>
-    //             <li key={item.category.nameCategory}>{item.category.nameCategory}</li>
-    //           </>)}
-    //       </ul>
-    // </div>
-    <div className="splitScreen" >
-
-      <ul>
-        {pre.map(item=>
-          <>
-
-          {/* <li key={item}>{item}</li> */}
-            {/* <li key={item.receipt.dateReceipt}>{item.receipt.dateReceipt}</li>
-            <li key={item.receipt.totalSum}>{"₪"}{item.receipt.totalSum}</li>
-            <li>{item.products.map(pro => pro.nameProduct).join(' , ')}</li> */} 
-          </>
-        
-        
-         )  } </ul>
-      
-    </div >
+    <div>
+      <h1 >סוגי הוצאות</h1>
+      <MUIDataTable
+        data={data}
+        columns={columns}
+        options={options}
+      />
+    </div>
   );
 }
+
+{/* <ul>
+      {pre.map(item =>
+        <>
+          <li key={item.category.nameCategory}>{item.category.nameCategory}</li>
+        </>)}
+    </ul>
+  // </div> */}
+{/*   
+); */}

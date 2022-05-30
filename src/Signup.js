@@ -53,7 +53,7 @@ export default function Signup(props) {
       component: "custom",
       customComponent: () => (
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Avatar style={{ backgroundColor: red[500], color: "white" }}>
+          <Avatar style={{ backgroundColor:"rgb(243, 26, 73)", color: "white" }}>
             <LockOutlined />
           </Avatar>
         </div>
@@ -61,7 +61,7 @@ export default function Signup(props) {
     },
     {
       component: "display-text",
-      title: "Sign up",
+      title: "הרשמה",
       titleProps: {
         style: {
           fontSize: "20px",
@@ -77,7 +77,7 @@ export default function Signup(props) {
     {
       attribute: "firstName",
       component: "text-field",
-      label: "First Name",
+      label: "שם פרטי",
       props: {
         required: true
       },
@@ -91,7 +91,7 @@ export default function Signup(props) {
     {
       attribute: "lastName",
       component: "text-field",
-      label: "Last Name",
+      label: "שם משפחה",
       props: {
         required: true
       },
@@ -105,7 +105,7 @@ export default function Signup(props) {
     {
       attribute: "email",
       component: "text-field",
-      label: "Email",
+      label: "מייל",
       props: {
         required: true
       },
@@ -117,7 +117,7 @@ export default function Signup(props) {
     {
       attribute: "password",
       component: "text-field",
-      label: "Password",
+      label: "סיסמא",
       props: {
         type: showPassword ? "text" : "password",
         InputProps: {
@@ -183,33 +183,21 @@ export default function Signup(props) {
             color="primary"
             style={{ marginTop: "8px" }}
           >
-            Sign Up
+         להרשמה
           </Button>
         </form>
         <div>
           <Button
             onClick={() =>navigate("/login") }
-            // setAuthType("login")
             style={{
               textTransform: "initial",
               marginTop: "16px",
               color: indigo[500]
             }}
           >
-            Already have an account?
-          </Button>
-          <Button
-            onClick={() =>{navigate("/recipts")} }
-            // setAuthType("signup")
-            style={{
-              textTransform: "initial",
-              color: indigo[500]
-            }}
-          >
-          לדף ההוצאות
+            ?יש לך חשבון
           </Button>
         </div>
-        {/* <div style={{ marginTop: "16px" }}>{JSON.stringify(form, null, 2)}</div> */}
       </div>
     </div>
   );

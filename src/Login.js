@@ -42,9 +42,9 @@ export default function Login(props) {
     event.preventDefault();
     const isExistUser = await login(form.email);
     if (isExistUser) {
-      navigate('/home')
+      navigate('/main')
     }
-    else{
+    else {
       navigate('/register');
 
     }
@@ -55,7 +55,7 @@ export default function Login(props) {
       component: "custom",
       customComponent: () => (
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Avatar style={{ backgroundColor: red[500], color: "white" }}>
+          <Avatar style={{ backgroundColor:"rgb(243, 26, 73)" , color: "white" }}>
             <LockOutlined />
           </Avatar>
         </div>
@@ -63,11 +63,12 @@ export default function Login(props) {
     },
     {
       component: "display-text",
-      title: "Log In",
+      title: "כניסה",
       titleProps: {
         style: {
           fontSize: "20px",
-          fontWeight: "bold"
+          fontWeight: "bold",
+          // backgroundColor:"red[500]"
         }
       },
       titleContainerProps: {
@@ -77,53 +78,69 @@ export default function Login(props) {
       }
     },
     {
+      attribute: "phone",
+      component: "text-field",
+      label: "טלפון",
+      props: {
+        required: true
+      },
+      col: {
+        xs: 6
+      },
+      validations: {
+        required: true
+      }
+    },
+    {
       attribute: "email",
       component: "text-field",
-      label: "Email",
+      label: "מייל",
       props: {
         required: true
       },
       validations: {
         required: true,
         email: true,
-      
+
       }
     },
-    {
-      attribute: "password",
-      component: "text-field",
-      label: "Password",
-      props: {
-        type: showPassword ? "text" : "password",
-        InputProps: {
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton
-                aria-label="toggle password visibility"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? <Visibility /> : <VisibilityOff />}
-              </IconButton>
-            </InputAdornment>
-          ),
-          style: {
-            paddingRight: 0
-          }
-        },
-        required: true
-      },
-      validations: {
-        required: true,
-        min: 8,
-        matches: ["/[a-z]/i", "At least 1 lowercase or uppercase letter"],
-        test: {
-          name: "specialChar",
-          test: (value) =>
-            /[0-9~!@#$%^&*()_+\-={}|[\]\\:";'<>?,./]/.test(value),
-          message: "At least 1 number or special character"
-        }
-      }
-    },
+
+    // {
+    //   attribute: "password",
+    //   component: "text-field",
+    //   label: "Password",
+    //   props: {
+    //     type: showPassword ? "text" : "password",
+    //     InputProps: {
+    //       endAdornment: (
+    //         <InputAdornment position="end">
+    //           <IconButton
+    //             aria-label="toggle password visibility"
+    //             onClick={() => setShowPassword(!showPassword)}
+    //           >
+    //             {showPassword ? <Visibility /> : <VisibilityOff />}
+    //           </IconButton>
+    //         </InputAdornment>
+    //       ),
+    //       style: {
+    //         paddingRight: 0
+    //       }
+    //     },
+    //     required: true
+    //   },
+    //   validations: {
+    //     required: true,
+    //     min: 8,
+    //     matches: ["/[a-z]/i", "At least 1 lowercase or uppercase letter"],
+    //     test: {
+    //       name: "specialChar",
+    //       test: (value) =>
+    //         /[0-9~!@#$%^&*()_+\-={}|[\]\\:";'<>?,./]/.test(value),
+    //       message: "At least 1 number or special character"
+    //     }
+    //   }
+    // },
+
     {
       attribute: "remember",
       component: "checkbox-group",
@@ -142,7 +159,7 @@ export default function Login(props) {
   ];
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center",paddingTop:"10px" }}>
       <div style={{ width: "60%" }}>
         <form onSubmit={handleSubmit}>
           <FormBuilder
@@ -158,49 +175,24 @@ export default function Login(props) {
             color="primary"
             style={{ marginTop: "8px" }}
           >
-            Log In
+            לכניסה
           </Button>
         </form>
-        {/* <div>
-          <Button
-            onClick={() => console.log("Forgot Password")}
-            style={{
-              textTransform: "initial",
-              marginTop: "16px",
-              color: indigo[500]
-            }}
-          >
-            Forgot Password?
-          </Button>
-        </div> */}
         <div>
           <Button
-            onClick={() =>{navigate("/register")} }
-            // setAuthType("signup")
+            onClick={() => { navigate("/register") }}
             style={{
               textTransform: "initial",
               color: indigo[500]
             }}
           >
-            Don't have an account?
-          </Button>
-          <Button
-            onClick={() =>{navigate("/main")} }
-            // setAuthType("signup")
-            style={{
-              textTransform: "initial",
-              color: indigo[500]
-            }}
-          >
-          לדף ההוצאות
+            ?אין לך חשבון
           </Button>
         </div>
-        {/* <div style={{ marginTop: "16px" }}>{JSON.stringify(form, null, 2)}</div> */}
       </div>
     </div>
   );
 }
-
 Login.propTypes = {
   setAuthType: PropTypes.func
 };

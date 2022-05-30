@@ -35,7 +35,7 @@ export default function App() {
   return (
     <div className="App" sx={{ direction: "rtl" }}>
 
-      <ButtonAppBar  sx={{ direction: "rtl" }}/>
+      <ButtonAppBar/>
       <CacheProvider value={cacheRtl}>
         <ThemeProvider theme={theme}>
           <Routes>

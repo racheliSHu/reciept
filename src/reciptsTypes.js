@@ -40,7 +40,7 @@ export default function A() {
     isLoading: false,
   };
 
-  componentDidMount() {
+  componentDidMount=()=> {
     this.getData('', 0);
   }
 

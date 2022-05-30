@@ -185,7 +185,7 @@ export default function Login(props) {
             Don't have an account?
           </Button>
           <Button
-            onClick={() =>{navigate("/recipts")} }
+            onClick={() =>{navigate("/main")} }
             // setAuthType("signup")
             style={{
               textTransform: "initial",

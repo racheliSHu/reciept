@@ -8,7 +8,7 @@ export default function HomePage() {
     const dispatch = useDispatch();
     let navigate = useNavigate();
     return (<div className="home">
-        <input type="button" onClick={()=>navigate("/login")} value="כניסה" />
+        <input className="b" type="button" onClick={()=>navigate("/login")} value="כניסה" />
         {/* <input type="button" onClick={()=>navigate("/recipts")} value="Recipts" />
         <input type="button" onClick={()=>navigate("/reciptsTypes")} value="ReciptsTypes" />
         <span>{user.email}</span><br/>

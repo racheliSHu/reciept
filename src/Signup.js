@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { get, isEmpty, set } from "lodash-es";
 import { FormBuilder } from "@jeremyling/react-material-ui-form-builder";
 import { Avatar, Button, IconButton, InputAdornment } from "@mui/material";
@@ -22,7 +22,11 @@ async function validate(refs, form) {
   return true;
 }
 
-export default function Signup(props) {
+export default function Signup({ nav, setNav },props) {
+  useEffect(() => {
+    setNav(false)
+
+})
   const navigate=useNavigate();
   const { setAuthType } = props;
   const [form, setForm] = useState({});
@@ -153,7 +157,7 @@ export default function Signup(props) {
    ];
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div className="top" style={{ display: "flex", justifyContent: "center" }}>
       <div style={{ width: "60%" }}>
         <form onSubmit={handleSubmit}>
           <FormBuilder

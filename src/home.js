@@ -7,10 +7,13 @@ export default function HomePage() {
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
     let navigate = useNavigate();
-    return (<div className="home">
-        <Button  onClick={() => navigate("/login")}>כניסה</Button>
+    return (<div className="home">  
+     {/* <img className="im" src={require('./images/logo.jpg')} height={100} width={100} /> */}
+        <Button onClick={() => navigate("/login")}>כניסה</Button>
+     
+        {/* <input type="button" onClick={()=>navigate("/recipts")} value="Recipts" /> */}
         {/* <input className="b" type="button" onClick={()=>navigate("/login")} value="כניסה" /> */}
-        {/* <input type="button" onClick={()=>navigate("/recipts")} value="Recipts" />
+        {/* 
         <input type="button" onClick={()=>navigate("/reciptsTypes")} value="ReciptsTypes" />
         <span>{user.email}</span><br/>
          <span>{user.name}</span> 

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { get, isEmpty, set } from "lodash-es";
 import { FormBuilder } from "@jeremyling/react-material-ui-form-builder";
 import { Avatar, Button, IconButton, InputAdornment } from "@mui/material";
@@ -22,7 +22,11 @@ async function validate(refs, form) {
   return true;
 }
 
-export default function Login(props) {
+export default function Login({ nav, setNav },props) {
+  useEffect(() => {
+    setNav(false)
+
+})
   let navigate = useNavigate();
   const { setAuthType } = props;
   const [form, setForm] = useState({});
@@ -104,47 +108,10 @@ export default function Login(props) {
 
       }
     },
-
-    // {
-    //   attribute: "password",
-    //   component: "text-field",
-    //   label: "Password",
-    //   props: {
-    //     type: showPassword ? "text" : "password",
-    //     InputProps: {
-    //       endAdornment: (
-    //         <InputAdornment position="end">
-    //           <IconButton
-    //             aria-label="toggle password visibility"
-    //             onClick={() => setShowPassword(!showPassword)}
-    //           >
-    //             {showPassword ? <Visibility /> : <VisibilityOff />}
-    //           </IconButton>
-    //         </InputAdornment>
-    //       ),
-    //       style: {
-    //         paddingRight: 0
-    //       }
-    //     },
-    //     required: true
-    //   },
-    //   validations: {
-    //     required: true,
-    //     min: 8,
-    //     matches: ["/[a-z]/i", "At least 1 lowercase or uppercase letter"],
-    //     test: {
-    //       name: "specialChar",
-    //       test: (value) =>
-    //         /[0-9~!@#$%^&*()_+\-={}|[\]\\:";'<>?,./]/.test(value),
-    //       message: "At least 1 number or special character"
-    //     }
-    //   }
-    // },
-
    ];
 
   return (
-    <div style={{ display: "flex", justifyContent: "center",paddingTop:"10px" }}>
+    <div className="top" style={{ display: "flex", justifyContent: "center",paddingTop:"10px" }}>
       <div style={{ width: "60%" }}>
         <form onSubmit={handleSubmit}>
           <FormBuilder
@@ -181,3 +148,39 @@ export default function Login(props) {
 Login.propTypes = {
   setAuthType: PropTypes.func
 };
+
+    // {
+    //   attribute: "password",
+    //   component: "text-field",
+    //   label: "Password",
+    //   props: {
+    //     type: showPassword ? "text" : "password",
+    //     InputProps: {
+    //       endAdornment: (
+    //         <InputAdornment position="end">
+    //           <IconButton
+    //             aria-label="toggle password visibility"
+    //             onClick={() => setShowPassword(!showPassword)}
+    //           >
+    //             {showPassword ? <Visibility /> : <VisibilityOff />}
+    //           </IconButton>
+    //         </InputAdornment>
+    //       ),
+    //       style: {
+    //         paddingRight: 0
+    //       }
+    //     },
+    //     required: true
+    //   },
+    //   validations: {
+    //     required: true,
+    //     min: 8,
+    //     matches: ["/[a-z]/i", "At least 1 lowercase or uppercase letter"],
+    //     test: {
+    //       name: "specialChar",
+    //       test: (value) =>
+    //         /[0-9~!@#$%^&*()_+\-={}|[\]\\:";'<>?,./]/.test(value),
+    //       message: "At least 1 number or special character"
+    //     }
+    //   }
+    // },

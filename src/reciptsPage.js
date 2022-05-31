@@ -7,18 +7,21 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { prefixer } from 'stylis';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-export default function ReciptsPage() {
-    const [reciepts,setReciepts] = useState({
+import { useEffect, useState } from 'react';
+import Reciept from './recipts';
+import ButtonAppBar from './navbar';
+export default function ReciptsPage({ nav, setNav }) {
+    const [reciepts, setReciepts] = useState({
         Id: 5,
-        dateReceipt: "2021-03-05T00:00:00",
-        nameShop: "nativ",
-        numCompany: "1111",
-        totalSum: 234.0,
-        myUser: "2",
-        category: 1,
+        dateReceipt: "",
+        nameShop: "",
+        numCompany: "",
+        totalSum: "",
+        myUser: "",
+        category: "",
         path: null
     });
+
     let navigate = useNavigate()
     const theme = createTheme({
         direction: 'rtl',
@@ -32,13 +35,18 @@ export default function ReciptsPage() {
         key: 'muirtl',
         stylisPlugins: [prefixer, rtlPlugin],
     });
+    useEffect(() => {
+        setNav(true)
+
+    })
     return (
-        < div className="splitScreen" >
-            <CacheProvider value={cacheRtl}>
+        < div className="splitScreen">
+             <CacheProvider value={cacheRtl}>
                 <ThemeProvider theme={theme}>
-                    <div id="leftPane" sx={{padding:"50vh"}}><PdfImg setReciepts={(value) => setReciepts(value)}/></div>
-                    <div id="rightPane"><ColumnsGrid AllReceipt ={reciepts}/></div>
-                
+
+                    <div id="leftPane" sx={{ padding: "50vh" }}><PdfImg setReciepts={(value) => setReciepts(value)} /></div>
+                    <div id="rightPane"><Reciept AllReceipt={reciepts} /></div>
+
                 </ThemeProvider>
             </CacheProvider>
         </div >)

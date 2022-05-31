@@ -19,7 +19,19 @@ const Item = styled(Paper)(({ theme }) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
 }));
-export default function Reciept({ AllReceipt }) {
+// export default function RecieptHand({ AllReceipt }) {
+export default function RecieptHand({ nav, setNav }) {
+    const [AllReceipt, setAllRecipt] = useState({
+        Id: 5,
+        dateReceipt: "",
+        nameShop: "",
+        numCompany: "",
+        totalSum: "",
+        myUser: "",
+        category: "",
+        path: null,
+        products: [{ id: "", nameProduct: '', amount: '', sumProduct: '' }]
+    });
     const dateReceiptRef = useRef('20/02/2022')
     const getColumns = () => {
         return [
@@ -30,7 +42,7 @@ export default function Reciept({ AllReceipt }) {
     }
     const [rows, setRows] = useState([]);
     const [columns, setColumns] = useState(getColumns);
-
+   
     useEffect(() => {
         async function getResults() {
             // const result = await axios.get("https://localhost:44391/api/getAllReceipt");
@@ -38,7 +50,7 @@ export default function Reciept({ AllReceipt }) {
             setRows(AllReceipt.products);
         }
         getResults()
-    }, [AllReceipt])
+    }, [AllReceipt], setNav(true))
 
     async function addReceipt() {
         console.log(AllReceipt);
@@ -171,11 +183,11 @@ export default function Reciept({ AllReceipt }) {
                                 ))}
                             </TextField>
                             <div style={{ height: 400, width: '100%' }}>
-                                {rows && <DataGrid
+                                <DataGrid
                                     rows={rows}
                                     columns={columns}
                                     experimentalFeatures={{ newEditingApi: true }}
-                                />}
+                                />
                                 <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
                                     הוספת שורה
                                 </Button>

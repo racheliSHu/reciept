@@ -3,7 +3,7 @@ import samplePDF from "./pdf/sample.pdf";
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function PdfImg({setReciepts}) {
+export default function PdfImg({setReciepts},{ nav, setNav }) {
     const [pdf, setPdf] = useState(null);
     const [imgFile, setImgFile] = useState(null);  
         {/* צריך להוסיף סטטיט של תמונה וסטייט של PDF */}

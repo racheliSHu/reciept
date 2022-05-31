@@ -2,6 +2,7 @@ import "./styles.css";
 import MUIDataTable from "mui-datatables";
 import axios from 'axios';
 import { useState, useEffect, useRef } from "react";
+import ButtonAppBar from "./navbar";
 
 export default function Reci() {
   const [pre, setPre] = useState([])
@@ -14,7 +15,7 @@ export default function Reci() {
   const columns = ["סכום", "שם"];
   useEffect(() => {
     async function getResults() {
-      const result = await axios.get("https://localhost:44391/api/Category");
+      const result = await axios.get("https://localhost:44391/api/Caregory");
       console.log(result.data)
       setPre(Array.from(result.data))
     }
@@ -30,7 +31,7 @@ export default function Reci() {
       pagination: {
         next: "Next >",
         previous: "< Previous",
-        rowsPerPage: "Total items Per Page",
+        rowsPerPage: "מס' קטגוריות בעמוד",
         displayRows: "OF",
         require: "true",
         data: "typeof(number)"

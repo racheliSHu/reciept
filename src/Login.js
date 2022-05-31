@@ -141,22 +141,7 @@ export default function Login(props) {
     //   }
     // },
 
-    {
-      attribute: "remember",
-      component: "checkbox-group",
-      options: [
-        {
-          label: "Remember Me",
-          value: true
-        }
-      ],
-      optionConfig: {
-        key: "label",
-        label: "label",
-        value: "value"
-      }
-    }
-  ];
+   ];
 
   return (
     <div style={{ display: "flex", justifyContent: "center",paddingTop:"10px" }}>

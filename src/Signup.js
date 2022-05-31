@@ -149,22 +149,8 @@ export default function Signup(props) {
         }
       }
     },
-    {
-      attribute: "remember",
-      component: "checkbox-group",
-      options: [
-        {
-          label: "Remember Me",
-          value: true
-        }
-      ],
-      optionConfig: {
-        key: "label",
-        label: "label",
-        value: "value"
-      }
-    }
-  ];
+
+   ];
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
@@ -206,3 +192,18 @@ export default function Signup(props) {
 Signup.propTypes = {
   setAuthType: PropTypes.func
 };
+  //   {
+  //     attribute: "remember",
+  //     component: "checkbox-group",
+  //     options: [
+  //       {
+  //         label: "Remember Me",
+  //         value: true
+  //       }
+  //     ],
+  //     optionConfig: {
+  //       key: "label",
+  //       label: "label",
+  //       value: "value"
+  //     }
+  //   }

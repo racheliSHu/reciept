@@ -10,7 +10,6 @@ import Reci from "./typesOfRecipts";
 import ButtonAppBar from './navbar'
 import Main from "./mainR";
 import ColumnsGrid from "./recipts";
-import A from "./reciptsTypes";
 import Previous from "./previous";
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
@@ -35,7 +34,7 @@ export default function App() {
   });
   return (
     <div className="App" sx={{ direction: "rtl" }}>
-<A/>
+
       <ButtonAppBar/>
       <CacheProvider value={cacheRtl}>
         <ThemeProvider theme={theme}>

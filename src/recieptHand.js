@@ -54,7 +54,7 @@ export default function RecieptHand({ nav, setNav }) {
 
     async function addReceipt() {
         console.log(AllReceipt);
-        axios.post(`https://localhost:44391/api/SaveReceipt`, AllReceipt)
+        axios.post(`https://localhost:44391/api/SaveReceipt`, {receipt : {...AllReceipt},products:AllReceipt.products})
             .then(res => {
                 console.log(res);
                 console.log(res.data);
@@ -100,17 +100,18 @@ export default function RecieptHand({ nav, setNav }) {
 
     ];
     const [currency, setCurrency] = React.useState('food');
-
+    const [counter,setCounter] = useState(1);
     const handleChange = (event) => {
         setCurrency(event.target.value);
     };
     const handleClick = () => {
-        const id = randomId();
         rows((oldRows) => [...oldRows, { id, nameProduct: '', amount: '', sumProduct: '' }]);
         setRows((oldModel) => ({
             ...oldModel,
-            [id]: { mode: GridRowModes.Edit, fieldToFocus: 'nameProduct' },
+            [counter]: { mode: GridRowModes.Edit, fieldToFocus: 'nameProduct' },
         }));
+        setCounter(++counter)
+        // rows.push( { id, nameProduct: '', amount: '', sumProduct: '' })
     };
 
     return (

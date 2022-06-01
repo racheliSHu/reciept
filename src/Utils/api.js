@@ -11,11 +11,17 @@ export const login = async (id) => {
         console.log(err);
     }
 }
-export const register = async () => {
-    const user = {
-        phone: '2',
-        emailAddress: 'aabb@gmail.com',
-        userName: 'racheli'
+export const register = async (user) => {
+    const userDto = {
+        phone : user.phone,
+        userName : user.firstName + " " + user.lastName,
+        businessName : user.firstName[0] + user.lastName[0],
+        emailAddress : user.email
     }
-    axios.post(SERVER_URL + 'NewUser', user);
+//     email: "ostrovruti@gmail.com"
+// firstName: "רות"
+// lastName: "אילני"
+// password: "Bb1234567!"
+   
+    axios.post(SERVER_URL + 'NewUser', userDto);
 }   

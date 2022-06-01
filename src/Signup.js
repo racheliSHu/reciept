@@ -45,9 +45,9 @@ export default function Signup({ nav, setNav },props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const ok = await validate(refs, form);
-    register();
-    if (!ok) {
-      return;
+    if (ok) {
+      register(form);
+      navigate("/main")
     }
     console.log(form);
   };
@@ -101,6 +101,17 @@ export default function Signup({ nav, setNav },props) {
       },
       col: {
         xs: 6
+      },
+      validations: {
+        required: true
+      }
+    },
+    {
+      attribute: "phone",
+      component: "text-field",
+      label: "טלפון",
+      props: {
+        required: true
       },
       validations: {
         required: true

@@ -44,7 +44,7 @@ export default function Login({ nav, setNav },props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const isExistUser = await login(form.email);
+    const isExistUser = await login(form.phone);
     if (isExistUser) {
       navigate('/main')
     }
@@ -87,9 +87,6 @@ export default function Login({ nav, setNav },props) {
       label: "טלפון",
       props: {
         required: true
-      },
-      col: {
-        xs: 6
       },
       validations: {
         required: true

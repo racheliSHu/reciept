@@ -5,19 +5,16 @@ import { useState, useEffect, useRef } from "react";
 import ButtonAppBar from "./navbar";
 
 export default function Reci() {
-  const [pre, setPre] = useState([])
-  const data = [
-    ["530", "ביגוד"],
-    ["2000.5", "מזון"],
-    ["500", "רכב"],
-    ["1000", "לימודים"],
-  ];
+  const [data, setData] = useState([])
   const columns = ["סכום", "שם"];
   useEffect(() => {
     async function getResults() {
       const result = await axios.get("https://localhost:44391/api/Caregory");
-      console.log(result.data)
-      setPre(Array.from(result.data))
+      const newData = [];
+      for (const [key, value] of Object.entries(result.data)) {
+        newData.push([value,key])
+      }
+      setData(newData);
     }
     getResults()
   }, [])
@@ -57,12 +54,3 @@ export default function Reci() {
   );
 }
 
-{/* <ul>
-      {pre.map(item =>
-        <>
-          <li key={item.category.nameCategory}>{item.category.nameCategory}</li>
-        </>)}
-    </ul>
-  // </div> */}
-{/*   
-); */}

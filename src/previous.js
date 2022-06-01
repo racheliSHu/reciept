@@ -24,7 +24,7 @@ export default function Previous({ nav, setNav }, props) {
                         <h2>{item.receipt.nameShop}</h2>
                         {/* <li key={item.receipt.nameShop}>{item.receipt.nameShop}</li> */}
 
-                        <span>{item.receipt.dateReceipt}</span> <br />
+                        <span>{new Date(item.receipt.dateReceipt).toDateString()}</span> <br />
                         {/* <li key={item.receipt.dateReceipt}>{item.receipt.dateReceipt}</li> */}
                         <span>{"₪"}{item.receipt.totalSum}</span>   <hr />
                         {/* <li key={item.receipt.totalSum}>{"₪"}{item.receipt.totalSum}</li> */}

@@ -2,19 +2,14 @@ import SinglePagePDFViewer from "./pdf/single-page";
 import samplePDF from "./pdf/sample.pdf";
 import React, { useState } from "react";
 import axios from "axios";
-<<<<<<< HEAD
 import "./styles.css";
-=======
->>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
+import { Button } from "@material-ui/core";
 
 export default function PdfImg({ setReciepts }, { nav, setNav }) {
     const [pdf, setPdf] = useState(null);
     const [serverPdf, setServerPdf] = useState(null);
     const [imgFile, setImgFile] = useState(null);
-<<<<<<< HEAD
-    
-=======
->>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
+
     {/* צריך להוסיף סטטיט של תמונה וסטייט של PDF */ }
     const sendReciepts = async (e) => {
         e.preventDefault();
@@ -38,19 +33,12 @@ export default function PdfImg({ setReciepts }, { nav, setNav }) {
         <>
             <input
                 type="file"
-<<<<<<< HEAD
-                
-                //????????????//
-=======
->>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
+                className="input-style"
                 accept="application/pdf ,image/*"
                 onChange={(e) => {
                     const file = e.target.files[0];
                     setServerPdf(file);
-<<<<<<< HEAD
                     console.log(file);
-=======
->>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
                     const reader = new FileReader();
                     reader.readAsDataURL(file);
                     reader.onload = () => {
@@ -67,13 +55,8 @@ export default function PdfImg({ setReciepts }, { nav, setNav }) {
 
                 } />
             {pdf && <SinglePagePDFViewer pdf={pdf} />}
-<<<<<<< HEAD
             {imgFile && <img id="im1" src={imgFile} />}
             <button id="btn2" onClick={sendReciepts}>שליחה</button>
-=======
-            {imgFile && <img src={imgFile} />}
-            <button onClick={sendReciepts}>Send</button>
->>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
             <hr />
         </>
     )

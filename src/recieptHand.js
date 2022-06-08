@@ -150,7 +150,7 @@ export default function RecieptHand({ nav, setNav }) {
         [rows],
       );
     return (
-        <div className="stepsWrapper">
+        <div className="stepsWrapper" sx={{"display":"flex", "justify-content": "center","align-items": "center"}}>
             <CacheProvider value={cacheRtl}>
                 <ThemeProvider theme={theme}>
                     <Box component="form"

@@ -25,12 +25,7 @@ async function validate(refs, form) {
 export default function Signup({ nav, setNav },props) {
   useEffect(() => {
     setNav(false)
-<<<<<<< HEAD
 },[])
-=======
-
-})
->>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
   const navigate=useNavigate();
   const { setAuthType } = props;
   const [form, setForm] = useState({});

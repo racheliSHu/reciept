@@ -12,6 +12,7 @@ import Reciept from './recipts';
 import ButtonAppBar from './navbar';
 export default function ReciptsPage({ nav, setNav }) {
     const [reciepts, setReciepts] = useState({
+<<<<<<< HEAD
         // Id: 5,
         // dateReceipt: "",
         // nameShop: "",
@@ -20,6 +21,16 @@ export default function ReciptsPage({ nav, setNav }) {
         // myUser: "",
         // category: "",
         // path: null
+=======
+        Id: 5,
+        dateReceipt: "",
+        nameShop: "",
+        numCompany: "",
+        totalSum: "",
+        myUser: "",
+        category: "",
+        path: null
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
     });
 
     let navigate = useNavigate()
@@ -38,7 +49,11 @@ export default function ReciptsPage({ nav, setNav }) {
     useEffect(() => {
         setNav(true)
 
+<<<<<<< HEAD
     },[])
+=======
+    })
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
     return (
         < div className="splitScreen">
              <CacheProvider value={cacheRtl}>

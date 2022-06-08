@@ -55,4 +55,9 @@ export default function SinglePage(props) {
     </>
   );
 }
+<<<<<<< HEAD
 ;
+=======
+
+;
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234

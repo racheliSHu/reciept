@@ -21,7 +21,11 @@ export default function Reci() {
 
   const options = {
     filterType: "checkbox",
+<<<<<<< HEAD
     
+=======
+    rowsPerPage: [7],
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
     rowsPerPageOptions: [1, 3, 5, 6, 7, 10],
     jumpToPage: true,
     textLabels: {
@@ -45,13 +49,19 @@ export default function Reci() {
   return (
     <div>
       <h1 >סוגי הוצאות</h1>
+<<<<<<< HEAD
     <div id="tbl">
+=======
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
       <MUIDataTable
         data={data}
         columns={columns}
         options={options}
       />
+<<<<<<< HEAD
       </div>
+=======
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
     </div>
   );
 }

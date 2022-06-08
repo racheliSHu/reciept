@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import DisplayReceipt from "./displayReceipt";
 import swal from "sweetalert";
 import { BsEye } from "react-icons/bs";
@@ -50,6 +51,13 @@ export default function Previous({ nav, setNav }, props) {
         console.log(div);
 
     }
+=======
+
+export default function Previous({ nav, setNav }, props) {
+    const [pre, setPre] = useState([])
+    let navigate = useNavigate()
+
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
     useEffect(() => {
         async function getResults() {
             const result = await axios.get("https://localhost:44391/api/GetDataReceipt");
@@ -73,6 +81,7 @@ export default function Previous({ nav, setNav }, props) {
                         <span>{"₪"}{item.receipt.totalSum}</span>   <hr />
                         {/* <li key={item.receipt.totalSum}>{"₪"}{item.receipt.totalSum}</li> */}
                         {/* <li>{item.products.map(pro => pro.nameProduct).join(' , ')}</li> */}
+<<<<<<< HEAD
                        
 
 
@@ -83,6 +92,9 @@ export default function Previous({ nav, setNav }, props) {
 
                       
                     
+=======
+                        <span>{item.products.map(pro => pro.nameProduct).join(' , ')}</span>
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
                     </div>
                 )
                 }

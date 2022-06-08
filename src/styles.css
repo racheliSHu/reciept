@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* .home::after {
   height: 20px;
   width: 100vw;
@@ -5,6 +6,17 @@
   flex-direction: row;
   /* padding:1% 1% 2% 1%; */
 /* } */ */
+=======
+.home {
+  height: 100vh;
+  width: 100vw;
+  padding: auto;
+  
+  background-image: url("./images/3992745.jpg");
+  /* display: flex;
+  flex-direction: column; */
+}
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
 
 .b {
   cursor: pointer;
@@ -13,6 +25,7 @@
   height: 10vh;
 }
 .im{
+<<<<<<< HEAD
   width: 20%;
 
 
@@ -23,6 +36,12 @@
 }
 .NativeSelect {
   width: 50px;
+=======
+
+}
+.NativeSelect {
+  width: 50px
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
 }
 
 .css-1t29gy6-MuiToolbar-root {
@@ -62,16 +81,23 @@ input {
 }
 
 #leftPane {
+<<<<<<< HEAD
   width: 30%;
+=======
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
   flex: 1;
   padding: 45px;
 
 }
 
 #rightPane {
+<<<<<<< HEAD
   width:700%;
   flex: 3;
 
+=======
+  flex: 3;
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
   /* padding: 3px; */
 
 }
@@ -86,11 +112,17 @@ h1 {
 }
 
 .stepsWrapper {
+<<<<<<< HEAD
   width: 50%;
   margin: 0 auto;
   direction: rtl;
   padding: 0px;
   margin-right: 0px;
+=======
+  width: 60%;
+  margin: 0 auto;
+  direction: rtl;
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
 }
 
 .splitScreen2 {
@@ -99,6 +131,7 @@ h1 {
 }
 .top{
   border-top: 1.5vh solid rgb(47, 194, 145);
+<<<<<<< HEAD
 }
 .img {
   height: 90vmin;
@@ -233,4 +266,6 @@ font-weight: 200;
  
   margin: 3px;
 
+=======
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
 }

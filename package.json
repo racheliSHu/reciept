@@ -25,13 +25,17 @@
     "react-color": "2.19.3",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.31.1",
+    "react-icons": "^4.4.0",
+    "react-native-file-viewer": "^2.1.5",
     "react-pdf": "^5.7.2",
     "react-player": "2.9.0",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.0",
+    "reactjs-popup": "^2.0.5",
     "stylis": "^4.1.1",
-    "stylis-plugin-rtl": "^2.0.2"
+    "stylis-plugin-rtl": "^2.0.2",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",

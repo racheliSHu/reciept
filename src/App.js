@@ -18,6 +18,10 @@ import { prefixer } from 'stylis';
 import Reciept from "./recipts";
 import "./images/logo.jpg"
 import { height } from "@mui/material/node_modules/@mui/system";
+<<<<<<< HEAD
+import DisplayReceipt from "./displayReceipt";
+=======
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
 
 export default function App() {
   const [nav, setNav] = useState(false)
@@ -45,12 +49,20 @@ export default function App() {
           <Routes>
             <Route exact path='/' element={< HomePage/>}></Route>
             <Route exact path='/login' element={< Login nav={nav} setNav={setNav}/>}></Route>
+<<<<<<< HEAD
+            <Route exact path='/register' element={< Signup nav={nav} setNav={setNav}/>}></Route>
+=======
             <Route exact path='/register' element={< Signup  nav={nav} setNav={setNav}/>}></Route>
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
             <Route exact path='/main' element={< Main nav={nav} setNav={setNav} />}></Route>
             <Route exact path='/recipts' element={< ReciptsPage nav={nav} setNav={setNav}/>}></Route>
             <Route exact path='/recipthand' element={< RecieptHand nav={nav} setNav={setNav}/>}></Route>
             <Route exact path='/recipt' element={< Reciept nav={nav} setNav={setNav}/>}></Route>
             <Route exact path='/past' element={< Previous nav={nav} setNav={setNav}/>}></Route>
+<<<<<<< HEAD
+            <Route exact path='/display' element={< DisplayReceipt nav={nav} setNav={setNav}/>}></Route>
+=======
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
             <Route exact path='/reciptsTypes' element={< Reci nav={nav} setNav={setNav}/>}></Route>
           </Routes>
         </ThemeProvider>

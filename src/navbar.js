@@ -19,7 +19,11 @@ export default function ButtonAppBar() {
             edge="start"
             color="inherit"
             aria-label="menu"
+<<<<<<< HEAD
+            sx={{ mr: 2 ,  paddingBottom: "10px"}}
+=======
             sx={{ mr: 2 ,  "padding-bottom": "10px"}}
+>>>>>>> e500aa98e8f7bcc646738da7cad00214b6c63234
             
           >
             <MenuIcon />

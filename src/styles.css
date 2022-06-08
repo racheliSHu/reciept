@@ -1,0 +1,236 @@
+/* .home::after {
+  height: 20px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  /* padding:1% 1% 2% 1%; */
+/* } */ */
+
+.b {
+  cursor: pointer;
+  margin: 10px;
+  width: 20%;
+  height: 10vh;
+}
+.im{
+  width: 20%;
+
+
+}
+.im1{
+  width: 25vw;
+  height: auto;
+}
+.NativeSelect {
+  width: 50px;
+}
+
+.css-1t29gy6-MuiToolbar-root {
+  background-color: rgb(47, 194, 145)
+}
+
+.ul {
+  border: 1px solid rgb(243, 26, 73);
+  display: inline-table;
+  margin: 2vw;
+  text-align: center;
+  border-radius: 2%;
+  width: 17vw;
+  height: 15vh;
+  padding: 2%;
+}
+
+input {
+  margin: 10px;
+  /* flex: 0.2; */
+  width: 20%;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+
+
+}
+
+.splitScreen {
+  height: 20px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  /* padding:1% 1% 2% 1%; */
+}
+
+#leftPane {
+  width: 30%;
+  flex: 1;
+  padding: 45px;
+
+}
+
+#rightPane {
+  width:700%;
+  flex: 3;
+
+  /* padding: 3px; */
+
+}
+
+h1 {
+  text-align: right;
+}
+
+.splitScreen>div {
+  height: 100%;
+  width: 100%;
+}
+
+.stepsWrapper {
+  width: 50%;
+  margin: 0 auto;
+  direction: rtl;
+  padding: 0px;
+  margin-right: 0px;
+}
+
+.splitScreen2 {
+  border: #ff8080;
+  padding: 2.5vh;
+}
+.top{
+  border-top: 1.5vh solid rgb(47, 194, 145);
+}
+.img {
+  height: 90vmin;
+  /* padding: 0px 3px;
+  position: fixed;
+  margin-top: 20px; */
+}
+
+.column {
+  block-size: 0%;
+  float: none;
+  width: 50%;
+  padding: 0px;
+  height: 300px;
+  /* Should be removed. Only for demonstration */
+}
+.column {
+  display: block;
+  height: 70px;
+  margin-top: 0px;
+  padding: 0px;
+  float: none;
+  /* Should be removed. Only for demonstration */
+}
+
+.row ::after {
+  height: 20px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  /* padding:1% 1% 2% 1%; */
+}
+
+#h1 {
+
+  font-size: 70px;
+  text-align: right;
+  font-style: initial;
+  font-family: almoni-tzar-bold;
+  color: #23445a;
+  font-weight: 700;
+  font-size: 100px;
+  padding: 0px;
+  margin: 0px;
+}
+
+#h2 {
+  font-size: 70px;
+  text-align: right;
+  font-style: initial;
+  font-family: almoni-tzar-bold;
+  color: #23445a;
+  font-weight: 700;
+  font-size: 100px;
+}
+
+#btn {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 29px;
+  cursor: pointer;
+  margin-left: 0px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #29C99F;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+
+}
+#a1{
+  margin-inline-start: auto;
+   text-align:right ;
+   flex-direction: column;
+   align-content: flex-start;
+   justify-content: space-evenly;
+   font-family: almoni-tzar-bold;
+color: #23445a;
+font-size: 30px;
+font-weight: 200;
+
+}
+
+#btn1 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 29px;
+  cursor: pointer;
+  margin-left: 0px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #29C99F;;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin: 30px;
+
+}
+#btn2 {
+  display: inline-block;
+  padding: 7px 114px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 0px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: #29C99F;
+  border: none;
+  color:#fff;
+  border-radius: 7px;
+  box-shadow: 0 9px #999;
+  margin: 30px;
+
+}
+#btn3 {
+  display: inline-block;
+  padding: 5px 17px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 0px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: #29C99F;
+  border: none;
+  color:#fff;
+  border-radius: 7px;
+ 
+  margin: 3px;
+
+}

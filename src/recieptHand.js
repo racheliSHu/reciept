@@ -50,8 +50,6 @@ export default function RecieptHand({ nav, setNav }) {
 
     useEffect(() => {
         async function getResults() {
-            // const result = await axios.get("https://localhost:44391/api/getAllReceipt");
-            // setRows(result.data);
             setRows(AllReceipt.products);
         }
         getResults()
@@ -127,30 +125,22 @@ export default function RecieptHand({ nav, setNav }) {
     const handleClick = () => {
         const newCounter = counter + 1
         setRows((oldRows) => [...oldRows, { id: newCounter, nameProduct: '', amount: '', sumProduct: '' }]);
-        // setRows((oldModel) => ({
-        //     ...oldModel,
-        //     [counter]: { mode: GridRowModes.Edit, fieldToFocus: 'nameProduct' },
-        // }));
         setCounter(newCounter)
-        // rows.push( { id:newCounter, nameProduct: '', amount: '', sumProduct: '' })
     };
     const handleCellEditCommit = React.useCallback(
         ({ id, field, value }) => {
-          
-           
-            const updatedRows = rows.map((row) => {
+             const updatedRows = rows.map((row) => {
               if (row.id === id) {
                 return { ...row, [field]:value };
               }
               return row;
             });
             setRows(updatedRows);
-          
-        },
+         },
         [rows],
       );
     return (
-        <div className="stepsWrapper" sx={{"display":"flex", "justify-content": "center","align-items": "center"}}>
+        <div className="stepsWrapper" sx={{"display":"flex", "justify-content": "center","align-items": "center","height":"100vh","width":"100vw"}}>
             <CacheProvider value={cacheRtl}>
                 <ThemeProvider theme={theme}>
                     <Box component="form"
@@ -241,11 +231,9 @@ export default function RecieptHand({ nav, setNav }) {
                                         onCellEditCommit={handleCellEditCommit}
                                      //   onStateChange = {((state) => setRows(state))}
                                     />
-
                                     <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
                                         הוספת שורה
                                     </Button>
-
                                 </div>
                                 <button id="btn2" onClick={addReceipt}>שמירה</button>
                             </div>

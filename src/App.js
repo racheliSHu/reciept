@@ -44,7 +44,7 @@ export default function App() {
       <CacheProvider value={cacheRtl}>
         <ThemeProvider theme={theme}>
           <Routes>
-            <Route exact path='/' element={< HomePage/>}></Route>
+            <Route exact path='/' element={< HomePage nav={nav} setNav={setNav}/>}></Route>
             <Route exact path='/login' element={< Login nav={nav} setNav={setNav}/>}></Route>
             <Route exact path='/register' element={< Signup nav={nav} setNav={setNav}/>}></Route>
             <Route exact path='/main' element={< Main nav={nav} setNav={setNav} />}></Route>

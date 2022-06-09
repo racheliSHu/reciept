@@ -4,7 +4,11 @@ import { setUser } from "./redux/userReducer/actions";
 import { Button } from "@mui/material";
 import img from "./images/3992745.jpg";
 import Logo from "./images/logo.jpg";
-export default function HomePage() {
+import { useEffect } from "react";
+export default function HomePage({ nav, setNav }) {
+    useEffect(() => {
+      setNav(false)
+    }, [])
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
     let navigate = useNavigate();

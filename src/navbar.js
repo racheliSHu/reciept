@@ -20,6 +20,7 @@ export default function ButtonAppBar() {
           <Button color="inherit" onClick={()=>navigate("/ReciptsTypes")}>סוגי הוצאות</Button>
            <Button color="inherit" onClick={()=>navigate("/main")}>הוצאות</Button>
           <Button color="inherit" onClick={()=>navigate("/login")}>כניסה</Button>
+          <Button color="inherit" onClick={()=>navigate("/")}>לדף הבית</Button>
           {/* <Button color="inherit" onClick={()=>navigate("/main")}>Receipts</Button> */}
  
           

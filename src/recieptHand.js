@@ -24,7 +24,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 // export default function RecieptHand({ AllReceipt }) {
 export default function RecieptHand({ nav, setNav }) {
-    const user = useSelector(state =>  state.user);
+    const user = useSelector(state => state.user);
     const [AllReceipt, setAllRecipt] = useState({
         Id: 6,
         dateReceipt: "",
@@ -39,9 +39,11 @@ export default function RecieptHand({ nav, setNav }) {
     const dateReceiptRef = useRef('20/02/2022')
     const getColumns = () => {
         return [
-            { field: 'nameProduct', headerName: 'שם המוצר', width: 70, editable: true, },
-            { field: 'amount', headerName: 'כמות', width: 70, type: 'number', editable: true, },
-            { field: 'sumProduct', headerName: ' מחיר סופי', width: 70, type: 'number', editable: true, },
+
+            { field: 'nameProduct', headerName: 'שם המוצר', width: 150, editable: true, },
+            { field: 'amount', headerName: 'כמות', width: 120, type: 'number', editable: true, },
+            { field: 'sumProduct', headerName: ' מחיר סופי', width: 120, type: 'number', editable: true, },
+
         ];
     }
     const [rows, setRows] = useState([]);
@@ -127,7 +129,7 @@ export default function RecieptHand({ nav, setNav }) {
 
     const handleClick = () => {
         const newCounter = counter + 1
-        setRows((oldRows) => [...oldRows, { id: newCounter, nameProduct: '', amount: '', sumProduct: '' }]);
+        setRows((oldRows) => [...oldRows, { id: newCounter, nameProduct: '', sumProduct: '', amount: '' }]);
         setCounter(newCounter)
     };
     const handleCellEditCommit = React.useCallback(
@@ -143,91 +145,92 @@ export default function RecieptHand({ nav, setNav }) {
         [rows],
     );
     return (
-        <div className="stepsWrapper2" sx={{ "marginRight":"50%" }}>
+        <div className="stepsWrapper2" sx={{ "marginRight": "50%" }}>
             <CacheProvider value={cacheRtl}>
                 <ThemeProvider theme={theme}>
                     <Box component="form"
-                       
+
                         sx={{
-                        flexGrow: 1,
-                        '& .MuiTextField-root': { m: 1, width: '25ch' },
-                    }}
+                            flexGrow: 1,
+                            '& .MuiTextField-root': { m: 1, width: '25ch' },
+                        }}
                         noValidate
                         autoComplete="off">
                         <Item sx={{ padding: 20, height: "100vh" }}>
-                        <div>
-                            <TextField
-                                required
-                                type={'date'}
-                                id="standard-required"
-                                label="תאריך"
-                                defaultValue={AllReceipt.dateReceipt}
-                                variant="standard"
-                                onChange={(e) => setAllRecipt({ ...AllReceipt, dateReceipt: e.target.value })}
-                            />
-                            <TextField
-                                required
-                                id="standard-required"
-                                label="שם חנות"
-                                defaultValue={AllReceipt.nameShop}
-                                variant="standard"
-                                onChange={(e) => setAllRecipt({ ...AllReceipt, nameShop: e.target.value })}
-                            />
-                            <TextField
-                                required
-                                id="standard-required"
-                                label="עוסק מורשה"
-                                defaultValue={AllReceipt.numCompany}
-                                variant="standard"
-                                onChange={(e) => setAllRecipt({ ...AllReceipt, numCompany: e.target.value })}
-                            />
-                            <TextField
-                                required
-                                type={'number'}
-                                id="standard-required"
-                                label="מחיר סופי"
-                                defaultValue={AllReceipt.totalSum}
-                                variant="standard"
-                                onChange={(e) => setAllRecipt({ ...AllReceipt, totalSum: e.target.value })}
-                            />
-                            <TextField
-                                required
-                                id="standard-select-currency"
-                                select
-                                label="קטגוריה"
-                                type="NativeSelect"
-                                // value={currency}
-                                // onChange={handleChange}
-                                variant="standard"
-                                onChange={(e) => setAllRecipt({ ...AllReceipt, category: e.target.value })}
-                            >
-
-                                {currencies.map((option) => (
-
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                            <div style={{ height: 400, width: '100%' }}>
-                                <DataGrid
-                                    rows={rows}
-                                    columns={columns}
-                                    experimentalFeatures={{ newEditingApi: true }}
-                                    onCellEditStop={(params, event) => {
-                                        const newRows = [...rows];
-                                        const index = newRows.findIndex(row => row.id === params.id)
-                                        newRows[index][params.field] = event.target.value;
-                                        setRows(newRows)
-                                    }}
+                            <div>
+                                <TextField
+                                    required
+                                    type={'date'}
+                                    id="standard-required"
+                                    label="תאריך"
+                                    defaultValue={AllReceipt.dateReceipt}
+                                    variant="standard"
+                                    onChange={(e) => setAllRecipt({ ...AllReceipt, dateReceipt: e.target.value })}
                                 />
-                                <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-                                    הוספת שורה
+                                <TextField
+                                    required
+                                    id="standard-required"
+                                    label="שם חנות"
+                                    defaultValue={AllReceipt.nameShop}
+                                    variant="standard"
+                                    onChange={(e) => setAllRecipt({ ...AllReceipt, nameShop: e.target.value })}
+                                />
+                                <TextField
+                                    required
+                                    id="standard-required"
+                                    label="עוסק מורשה"
+                                    defaultValue={AllReceipt.numCompany}
+                                    variant="standard"
+                                    onChange={(e) => setAllRecipt({ ...AllReceipt, numCompany: e.target.value })}
+                                />
+                                <TextField
+                                    required
+                                    type={'number'}
+                                    id="standard-required"
+                                    label="מחיר סופי"
+                                    defaultValue={AllReceipt.totalSum}
+                                    variant="standard"
+                                    onChange={(e) => setAllRecipt({ ...AllReceipt, totalSum: e.target.value })}
+                                />
+                                <TextField
+                                    required
+                                    id="standard-select-currency"
+                                    select
+                                    label="קטגוריה"
+                                    type="NativeSelect"
+                                    // value={currency}
+                                    // onChange={handleChange}
+                                    variant="standard"
+                                    onChange={(e) => setAllRecipt({ ...AllReceipt, category: e.target.value })}
+                                >
+
+                                    {currencies.map((option) => (
+
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                                <div style={{ height: 400, width: '100%' }}>
+                                    <DataGrid
+                                        rows={rows}
+                                        columns={columns}
+                                        experimentalFeatures={{ newEditingApi: true }}
+                                        onCellEditStop={(params, event) => {
+                                            const newRows = [...rows];
+                                            const index = newRows.findIndex(row => row.id === params.id)
+                                            newRows[index][params.field] = event.target.value;
+                                            setRows(newRows)
+                                        }}
+                                        // handleCellEditCommit={handleCellEditCommit}      
+                                                                      />
+                                    <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
+                                        הוספת שורה
                                     </Button>
+                                </div>
+                                <button id="btn2" onClick={addReceipt}>שמירה</button>
                             </div>
-                            <button id="btn2" onClick={addReceipt}>שמירה</button>
-                        </div>
-                    </Item>
+                        </Item>
 
                     </Box>
                 </ThemeProvider>

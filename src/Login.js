@@ -7,6 +7,8 @@ import { indigo, red } from "@mui/material/colors";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { login } from "./Utils/api";
+import { useDispatch } from "react-redux";
+import { setUser } from "./redux/userReducer/actions";
 
 async function validate(refs, form) {
   for (const [attribute, ref] of Object.entries(refs.current)) {
@@ -23,9 +25,9 @@ async function validate(refs, form) {
 }
 
 export default function Login({ nav, setNav },props) {
+  const dispatch = useDispatch();
   useEffect(() => {
     setNav(false)
-
 })
   let navigate = useNavigate();
   const { setAuthType } = props;
@@ -44,8 +46,9 @@ export default function Login({ nav, setNav },props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const isExistUser = await login(form.phone);
-    if (isExistUser) {
+    const isExist = await login(form.phone);
+    if (isExist) {
+      dispatch(setUser(form))
       navigate('/main')
     }
     else {

@@ -12,7 +12,7 @@ export default function Reci() {
       const result = await axios.get("https://localhost:44391/api/Caregory");
       const newData = [];
       for (const [key, value] of Object.entries(result.data)) {
-        newData.push([value,key])
+        newData.push([value, key])
       }
       setData(newData);
     }
@@ -20,8 +20,6 @@ export default function Reci() {
   }, [])
 
   const options = {
-    filterType: "checkbox",
-    
     rowsPerPageOptions: [1, 3, 5, 6, 7, 10],
     jumpToPage: true,
     textLabels: {
@@ -45,12 +43,12 @@ export default function Reci() {
   return (
     <div>
       <h1 >סוגי הוצאות</h1>
-    <div id="tbl">
-      <MUIDataTable
-        data={data}
-        columns={columns}
-        options={options}
-      />
+      <div id="tbl">
+        <MUIDataTable
+          data={data}
+          columns={columns}
+          options={options}
+        />
       </div>
     </div>
   );

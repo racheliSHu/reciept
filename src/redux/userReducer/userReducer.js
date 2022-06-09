@@ -2,8 +2,8 @@ import { actionTypes } from "./actionTypes";
 
 const initialState = {
     user:{
-        email:'aa@bb.com',
-        name:'ruti'
+        emailAddress:'aa@bb.com',
+        phone:'1'
     }
 }
 

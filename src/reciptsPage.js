@@ -11,16 +11,7 @@ import { useEffect, useState } from 'react';
 import Reciept from './recipts';
 import ButtonAppBar from './navbar';
 export default function ReciptsPage({ nav, setNav }) {
-    const [reciepts, setReciepts] = useState({
-        // Id: 5,
-        // dateReceipt: "",
-        // nameShop: "",
-        // numCompany: "",
-        // totalSum: "",
-        // myUser: "",
-        // category: "",
-        // path: null
-    });
+    const [reciepts, setReciepts] = useState({});
 
     let navigate = useNavigate()
     const theme = createTheme({
@@ -37,16 +28,13 @@ export default function ReciptsPage({ nav, setNav }) {
     });
     useEffect(() => {
         setNav(true)
-
     },[])
     return (
         < div className="splitScreen">
              <CacheProvider value={cacheRtl}>
                 <ThemeProvider theme={theme}>
-
                     <div id="leftPane" sx={{ padding: "50vh" }}><PdfImg setReciepts={(value) => setReciepts(value)} /></div>
                     <div id="rightPane"><Reciept AllReceipt={reciepts} /></div>
-
                 </ThemeProvider>
             </CacheProvider>
         </div >)

@@ -13,6 +13,7 @@ import { GridRowModes } from '@mui/x-data-grid-pro';
 import { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import { GridCellEditStopReasons } from '@mui/x-data-grid';
+import { useSelector } from 'react-redux';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -23,13 +24,14 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 // export default function RecieptHand({ AllReceipt }) {
 export default function RecieptHand({ nav, setNav }) {
+    const user = useSelector(state =>  state.user);
     const [AllReceipt, setAllRecipt] = useState({
         Id: 6,
         dateReceipt: "",
         nameShop: "",
         numCompany: "",
         totalSum: "",
-        myUser: "",
+        myUser: user.phone,
         category: "",
         path: null,
         products: [{ id: "", nameProduct: '', amount: '', sumProduct: '' }]
@@ -190,14 +192,6 @@ export default function RecieptHand({ nav, setNav }) {
                             />
                             <TextField
                                 required
-                                id="standard-required"
-                                label="שם משתמש"
-                                defaultValue={AllReceipt.myUser}
-                                variant="standard"
-                                onChange={(e) => setAllRecipt({ ...AllReceipt, myUser: e.target.value })}
-                            />
-                            <TextField
-                                required
                                 id="standard-select-currency"
                                 select
                                 label="קטגוריה"
@@ -220,18 +214,12 @@ export default function RecieptHand({ nav, setNav }) {
                                     rows={rows}
                                     columns={columns}
                                     experimentalFeatures={{ newEditingApi: true }}
-                                    // onCellEditStop={(params, event) => {
-                                    //     console.log(params,event)
-                                    //     const newRows = [...rows];
-                                    //     const index = newRows.findIndex(row => row.id === params.id)
-                                    //     newRows[index][params.field] = event.target.value;
-                                    //     setRows(newRows)
-                                    //     if (params.reason === GridCellEditStopReasons.cellFocusOut) {
-                                    //       event.defaultMuiPrevented = true;
-                                    //     }
-                                    //   }}
-                                    onCellEditCommit={handleCellEditCommit}
-                                //   onStateChange = {((state) => setRows(state))}
+                                    onCellEditStop={(params, event) => {
+                                        const newRows = [...rows];
+                                        const index = newRows.findIndex(row => row.id === params.id)
+                                        newRows[index][params.field] = event.target.value;
+                                        setRows(newRows)
+                                    }}
                                 />
                                 <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
                                     הוספת שורה

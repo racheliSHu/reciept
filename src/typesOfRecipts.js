@@ -4,7 +4,10 @@ import axios from 'axios';
 import { useState, useEffect, useRef } from "react";
 import ButtonAppBar from "./navbar";
 
-export default function Reci() {
+export default function Reci({ nav, setNav }) {
+  useEffect(() => {
+    setNav(true)
+  }, [])
   const [data, setData] = useState([])
   const columns = ["סכום", "שם"];
   useEffect(() => {
@@ -14,6 +17,7 @@ export default function Reci() {
       for (const [key, value] of Object.entries(result.data)) {
         newData.push([value, key])
       }
+      console.log(newData)
       setData(newData);
     }
     getResults()

@@ -30,7 +30,7 @@
 }
 img{
   width:40vw;
-  height:auto;
+  height:60vh;
 }
 /* .im1{
   width: 100%;
@@ -72,7 +72,7 @@ input {
 }
 
 .splitScreen {
-  height: 20px;
+  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -82,16 +82,16 @@ input {
 #leftPane {
   width: 40vw;
   flex: 1;
-  padding: 45px;
+  padding: 5vw;
 
 }
 
 #rightPane {
-  width:60vw;
-  flex: 3;
-
-  /* padding: 3px; */
-
+  width:50vw;
+  flex: 2;
+  height: 90vh;
+  margin-top: 8vh;
+margin-right: 0;
 }
 
 h1 {
@@ -104,15 +104,18 @@ h1 {
 }
 
 .stepsWrapper {
-  width: 50%;
-  margin: 0 auto;
+  width: 40vw;
+  margin-right: 0;
   direction: rtl;
   padding: 0px;
 }
 
-.splitScreen2 {
-  border: #ff8080;
-  padding: 2.5vh;
+.stepsWrapper2 { 
+  margin-left: 25%;
+  width: 50vw;
+  direction: rtl;
+  padding: 0px;
+
 }
 .top{
   border-top: 1.5vh solid rgb(47, 194, 145);

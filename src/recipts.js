@@ -24,10 +24,10 @@ export default function Reciept({ AllReceipt }) {
     const dateReceiptRef = useRef('20/02/2022');
     const getColumns = () => {
         return [
-           
-            { field: 'nameProduct', headerName: 'שם המוצר', width: 70, editable: true, },
-            { field: 'amount', headerName: 'כמות', width: 70, type: 'number', editable: true, },
-            { field: 'sumProduct', headerName: ' מחיר סופי', width: 70, type: 'number', editable: true, },
+
+            { field: 'nameProduct', headerName: 'שם המוצר', width: 150, editable: true, },
+            { field: 'amount', headerName: 'כמות', width: 120, type: 'number', editable: true, },
+            { field: 'sumProduct', headerName: ' מחיר סופי', width: 120, type: 'number', editable: true, },
         ];
     }
     const [rows, setRows] = useState([]);
@@ -36,9 +36,6 @@ export default function Reciept({ AllReceipt }) {
 
 
     useEffect(async () => {
-        // const result = await axios.get("https://localhost:44391/api/getAllReceiptState");
-        // setRows(result.data);
-
         console.log(AllReceipt);
         console.log(AllReceipt.products);
         console.log(AllReceipt.receipt);
@@ -126,90 +123,96 @@ export default function Reciept({ AllReceipt }) {
     };
 
     return (
-        <div className="stepsWrapper">
-            <CacheProvider value={cacheRtl}>
-                <ThemeProvider theme={theme}>
-                    {AllReceiptState && AllReceiptState.receipt && <Box component="form"
-                        sx={{
-                            flexGrow: 1,
-                            '& .MuiTextField-root': { m: 1, width: '25ch' },
-                        }}
-                        noValidate
-                        autoComplete="off">
-                        <Item sx={{ padding: 20, height: "100vh" }}><div>
-                            <TextField
-                                required
-                                id="standard-required"
-                                label="תאריך"
-                                value={AllReceiptState.receipt.dateReceipt}
-                                variant="standard"
-                                onChange={(e) => setAllReceiptState({ ...AllReceiptState, receipt: { ...AllReceiptState.receipt, dateReceipt: e.target.value } })}
-                            />
-                            <TextField
-                                required
-                                id="standard-required"
-                                label="שם חנות"
-                                value={AllReceiptState.receipt.nameShop}
-                                variant="standard"
-                                onChange={(e) => setAllReceiptState({ ...AllReceiptState, receipt: { ...AllReceiptState.receipt, nameShop: e.target.value } })}
-                            />
-                            <TextField
-                                required
-                                id="standard-required"
-                                label="עוסק מורשה"
-                                value={AllReceiptState.receipt.numCompany}
-                                variant="standard"
-                                onChange={(e) => setAllReceiptState({ ...AllReceiptState, receipt: { ...AllReceiptState.receipt, numCompany: e.target.value } })}
-                            />
-                            <TextField
-                                required
-                                id="standard-required"
-                                label="מחיר סופי"
-                                value={AllReceiptState.receipt.totalSum}
-                                variant="standard"
-                                onChange={(e) => setAllReceiptState({ ...AllReceiptState, receipt: { ...AllReceiptState.receipt, totalSum: e.target.value } })}
-                            />
-                            <TextField
-                                required
-                                id="standard-required"
-                                label="שם משתמש"
-                                value={AllReceiptState.myUser}
-                                variant="standard"
-                                onChange={(e) => setAllReceiptState({ ...AllReceiptState, myUser: e.target.value })}
-                            />
-                            <TextField
-                                required
-                                id="standard-select-currency"
-                                select
-                                label="קטגוריה"
-                                type="NativeSelect"
-                                // value={currency}
-                                // onChange={handleChange}
-                                variant="standard"
-                                value={AllReceiptState.receipt.category}
-                                onChange={(e) => setAllReceiptState({ ...AllReceiptState, receipt: { ...AllReceiptState.receipt, category: e.target.value } })}
-                            >
-                                {currencies.map((option) => (
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                            <div style={{ height: 200, width: '100%' }}>
-                                {rows && <DataGrid
-                                    rows={rows}
-                                    columns={columns}
-                                    experimentalFeatures={{ newEditingApi: true }}
-                                />}
+      
+            <div className="stepsWrapper" sx={{ "marginRight": "0", }}>
+                <CacheProvider value={cacheRtl}>
+                    <ThemeProvider theme={theme}>
+                        {AllReceiptState && AllReceiptState.receipt && <Box component="form"
+                            sx={{
+                                width: "40vw",
+                                height:"100vh",
+                                marginRight: "0",
+                                flexGrow: 1,
+                                '& .MuiTextField-root': { m: 1, width: '25ch' },
+                            }}
+                            noValidate
+                            autoComplete="off">
+                            <Item sx={{ paddingTop: 20, paddingRight: 5, height: "100vh" }}><div>
+                                <TextField
+                                    required
+                                    id="standard-required"
+                                    label="תאריך"
+                                    value={AllReceiptState.receipt.dateReceipt}
+                                    variant="standard"
+                                    onChange={(e) => setAllReceiptState({ ...AllReceiptState, receipt: { ...AllReceiptState.receipt, dateReceipt: e.target.value } })}
+                                />
+                                <TextField
+                                    required
+                                    id="standard-required"
+                                    label="שם חנות"
+                                    value={AllReceiptState.receipt.nameShop}
+                                    variant="standard"
+                                    onChange={(e) => setAllReceiptState({ ...AllReceiptState, receipt: { ...AllReceiptState.receipt, nameShop: e.target.value } })}
+                                />
+                                <TextField
+                                    required
+                                    id="standard-required"
+                                    label="עוסק מורשה"
+                                    value={AllReceiptState.receipt.numCompany}
+                                    variant="standard"
+                                    onChange={(e) => setAllReceiptState({ ...AllReceiptState, receipt: { ...AllReceiptState.receipt, numCompany: e.target.value } })}
+                                />
+                                <TextField
+                                    required
+                                    id="standard-required"
+                                    label="מחיר סופי"
+                                    value={AllReceiptState.receipt.totalSum}
+                                    variant="standard"
+                                    onChange={(e) => setAllReceiptState({ ...AllReceiptState, receipt: { ...AllReceiptState.receipt, totalSum: e.target.value } })}
+                                />
+                                <TextField
+                                    required
+                                    id="standard-required"
+                                    label="שם משתמש"
+                                    value={AllReceiptState.myUser}
+                                    variant="standard"
+                                    onChange={(e) => setAllReceiptState({ ...AllReceiptState, receipt: { ...AllReceiptState.receipt, myUser: e.target.value }} )}
+                                />
+                                <TextField
+                                    required
+                                    id="standard-select-currency"
+                                    select
+                                    label="קטגוריה"
+                                    type="NativeSelect"
+                                    // value={currency}
+                                    // onChange={handleChange}
+                                    variant="standard"
+                                    value={AllReceiptState.receipt.category}
+                                    onChange={(e) => setAllReceiptState({ ...AllReceiptState, receipt: { ...AllReceiptState.receipt, category: e.target.value } })}
+                                >
+                                    {currencies.map((option) => (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                                <div style={{ height: '70vh', width: '35vw',margin:"auto" }}>
+                                    {rows && <DataGrid
+
+                                        rows={rows}
+                                        columns={columns}
+                                        experimentalFeatures={{ newEditingApi: true }}
+                                    />}
+                                  
+                                </div>
+
                             </div>
-                            <button id="btn2" onClick={addReceipt}>שמירה</button>
-                        </div>
-                        </Item>
+                            </Item>
+  <button id="btn2" onClick={addReceipt}>שמירה</button>
 
-
-                    </Box>}
-                </ThemeProvider>
-            </CacheProvider>
-        </div >
+                        </Box>}
+                    </ThemeProvider>
+                </CacheProvider>
+            </div >
     );
 }
